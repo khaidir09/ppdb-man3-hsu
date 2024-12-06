@@ -11,7 +11,7 @@
             <hr class="divider" />
             <ul class="nav flex-column">
                 <li class="nav-item active">
-                    <a href="" class="nav-link"> Dashboard </a>
+                    <a href="{{ route('dashboard') }}" class="nav-link"> Dashboard </a>
                 </li>
                 <li class="nav-item">
                     <a

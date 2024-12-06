@@ -12,17 +12,12 @@
             <div class="dropdown ms-auto">
                 <a
                     href="#"
-                    class="d-flex align-items-center text-dark text-decoration-none"
+                    class="text-dark text-decoration-none"
                     id="dropdownUser"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                 >
-                    <img
-                        src=""
-                        alt="profile"
-                        class="rounded-circle me-2 d-none d-md-block"
-                    />
-                    <span>{{ Auth::user()->name }}</span>
+                    {{ Auth::user()->name }}
                 </a>
                 <ul
                     class="dropdown-menu dropdown-menu-end text-small"

@@ -10,15 +10,15 @@
             </a>
             <hr class="divider" />
             <ul class="nav flex-column">
-                <li class="nav-item active">
+                <li class="nav-item {{ Route::is('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}" class="nav-link"> Dashboard </a>
                 </li>
                 <li class="nav-item">
                     <a
-                        class="nav-link d-flex justify-content-between align-items-center"
+                        class="nav-link d-flex justify-content-between align-items-center {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*'])) ? 'collapsed' : '' }}"
                         href="#submenumaster"
                         data-bs-toggle="collapse"
-                        aria-expanded="false"
+                        aria-expanded="{{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*'])) ? 'true' : 'false' }}"
                     >
                         Data Master PPDB
                         <svg
@@ -38,9 +38,9 @@
                             <path d="M6 9l6 6l6 -6" />
                         </svg>
                     </a>
-                    <div class="collapse" id="submenumaster">
+                    <div class="collapse {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*'])) ? 'show' : '' }}" id="submenumaster">
                         <ul class="nav flex-column ms-3">
-                            <li class="nav-item">
+                            <li class="nav-item {{ Route::is('profil-madrasah') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('profil-madrasah') }}"
                                     >Profil Madrasah</a
                                 >

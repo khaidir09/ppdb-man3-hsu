@@ -1,15 +1,20 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfilMadrasahController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get(
+    '/',
 
-Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+    [App\Http\Controllers\HomeController::class, 'index']
+)->name('home');
+
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/master/profil-madrasah', [ProfilMadrasahController::class, 'index'])->name('profil-madrasah');
+    Route::post('/master/profil-madrasah/{id}', [ProfilMadrasahController::class, 'update'])->name('profil-madrasah-update');
 });
 
 Route::middleware('auth')->group(function () {
@@ -19,5 +24,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

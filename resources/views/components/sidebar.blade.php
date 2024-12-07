@@ -41,7 +41,7 @@
                     <div class="collapse" id="submenumaster">
                         <ul class="nav flex-column ms-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="profil-madrasah.html"
+                                <a class="nav-link" href="{{ route('profil-madrasah') }}"
                                     >Profil Madrasah</a
                                 >
                             </li>

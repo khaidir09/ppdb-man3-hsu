@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row text-center text-lg-start">
                 <div class="col-lg-7">
-                    <h1 class="display-1">PPDB Online MAN 3 HSU</h1>
-                    <h2 class="display-2">Tahun Pelajaran 2025/2026</h2>
+                    <h1 class="display-1">PPDB Online {{ $namaSekolah}}</h1>
+                    <h2 class="display-2">Tahun Pelajaran {{ $tahunPelajaran }}</h2>
                     <p class="mb-0">
                         Pastikan untuk mengisi formulir dengan teliti dan siapkan berkas
                         persyaratan sebelum mendaftar.
@@ -296,7 +296,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-8">
                     <h3>Punya pertanyaan seputar PPDB ?</h3>
-                    <p class="mb-0">Klik tombol "Gabung Group WA" untuk mendapatkan informasi yang terupdate mengenai Penerimaan Peserta Didik Baru MAN 3 Hulu Sungai Utara.</p>
+                    <p class="mb-0">Klik tombol "Gabung Group WA" untuk mendapatkan informasi yang terupdate mengenai Penerimaan Peserta Didik Baru {{ $namaSekolah }}.</p>
                 </div>
                 <div class="col-md-6 col-lg-4 align-self-center text-end">
                     <a href="" class="btn btn-cta">

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid p-4 p-md-5">
         <h1>Dashboard PPDB Online</h1>
-        <p class="mb-4">MAN 3 HULU SUNGAI UTARA</p>
+        <p class="mb-4 text-uppercase">{{ $namaSekolah }}</p>
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card shadow py-2">

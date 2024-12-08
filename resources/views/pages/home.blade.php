@@ -15,7 +15,7 @@
                     <div class="info-reg-online mx-auto mx-lg-0">
                         <h6>
                             Pendaftaran Online <br />
-                            3 Maret s/d 9 Mei 2025
+                        {{ \Carbon\Carbon::parse($pendaftaranOnline1)->locale('id')->translatedFormat('d F Y') }} s/d {{ \Carbon\Carbon::parse($pendaftaranOnline2)->locale('id')->translatedFormat('d F Y') }}
                         </h6>
                     </div>
                     <div
@@ -86,31 +86,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Pendaftaran Online</th>
-                                <td>3 Maret 2025 s/d 28 Maret 2025</td>
-                                <td>21 April 2025 s/d 9 Mei 2025</td>
-                            </tr>
-                            <tr>
-                                <td>Verifikasi Berkas</th>
-                                <td>31 Maret 2025 s/d 4 April 2025</td>
-                                <td>12 Mei 2025 s/d 16 Mei 2025</td>
-                            </tr>
-                            <tr>
-                                <td>Tes Seleksi</th>
-                                <td>7 April 2025 s/d 10 April 2025</td>
-                                <td>19 Mei 2025 s/d 22 Mei 2025</td>
-                            </tr>
-                            <tr>
-                                <td>Pengumuman Kelulusan</th>
-                                <td>14 April 2025</td>
-                                <td>26 Mei 2025</td>
-                            </tr>
-                            <tr>
-                                <td>Daftar Ulang</th>
-                                <td>15 April 2025 s/d 2 Mei 2025</td>
-                                <td>27 Mei 2025 s/d 9 Juni 2025</td>
-                            </tr>
+                            @foreach ($jadwal as $item)
+                                <tr>
+                                    <td>{{ $item->flow->nama_alur }}</th>
+                                    <td>
+                                        @if ($item->tgl_selesai != null)
+                                            {{ \Carbon\Carbon::parse($item->tgl_mulai)->locale('id')->translatedFormat('d F Y') }} s/d {{ \Carbon\Carbon::parse($item->tgl_selesai)->locale('id')->translatedFormat('d F Y') }}
+                                        @else
+                                            {{ \Carbon\Carbon::parse($item->tgl_mulai)->locale('id')->translatedFormat('d F Y') }}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item->tgl_selesai_gelombang2 != null)
+                                            {{ \Carbon\Carbon::parse($item->tgl_mulai_gelombang2)->locale('id')->translatedFormat('d F Y') }} s/d {{ \Carbon\Carbon::parse($item->tgl_selesai_gelombang2)->locale('id')->translatedFormat('d F Y') }}
+                                        @else
+                                            {{ \Carbon\Carbon::parse($item->tgl_mulai_gelombang2)->locale('id')->translatedFormat('d F Y') }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

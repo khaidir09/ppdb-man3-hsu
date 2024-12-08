@@ -15,10 +15,10 @@
                 </li>
                 <li class="nav-item">
                     <a
-                        class="nav-link d-flex justify-content-between align-items-center {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*'])) ? 'collapsed' : '' }}"
+                        class="nav-link d-flex justify-content-between align-items-center {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*', 'admin/master/jadwal*'])) ? 'collapsed' : '' }}"
                         href="#submenumaster"
                         data-bs-toggle="collapse"
-                        aria-expanded="{{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*'])) ? 'true' : 'false' }}"
+                        aria-expanded="{{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*', 'admin/master/jadwal*'])) ? 'true' : 'false' }}"
                     >
                         Data Master PPDB
                         <svg
@@ -38,7 +38,7 @@
                             <path d="M6 9l6 6l6 -6" />
                         </svg>
                     </a>
-                    <div class="collapse {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*'])) ? 'show' : '' }}" id="submenumaster">
+                    <div class="collapse {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*', 'admin/master/jadwal*'])) ? 'show' : '' }}" id="submenumaster">
                         <ul class="nav flex-column ms-3">
                             <li class="nav-item {{ Route::is('profil-madrasah') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('profil-madrasah') }}"
@@ -48,8 +48,8 @@
                             <li class="nav-item {{ Route::is('alur*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('alur.index') }}">Alur</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Jadwal</a>
+                            <li class="nav-item {{ Route::is('jadwal*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('jadwal.index') }}">Jadwal</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Persyaratan</a>

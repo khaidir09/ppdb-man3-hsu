@@ -48,154 +48,22 @@
                 </div>
             </div>
             <div class="row g-3 row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col">
-                    <div
-                        class="ikon-alur d-inline-flex align-items-center text-white justify-content-center mb-3"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-data-connection"
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($alur as $item)
+                    <div class="col">
+                        <div
+                            class="ikon-alur d-inline-flex align-items-center text-white justify-content-center mb-3"
                         >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M5 9.897c0 -1.714 1.46 -3.104 3.26 -3.104c.275 -1.22 1.255 -2.215 2.572 -2.611c1.317 -.397 2.77 -.134 3.811 .69c1.042 .822 1.514 2.08 1.239 3.3h.693a2.42 2.42 0 0 1 2.425 2.414a2.42 2.42 0 0 1 -2.425 2.414h-8.315c-1.8 0 -3.26 -1.39 -3.26 -3.103z"
-                            />
-                            <path d="M12 13v3" />
-                            <path d="M12 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                            <path d="M14 18h7" />
-                            <path d="M3 18h7" />
-                        </svg>
+                            {!! $item->ikon_alur !!}
+                        </div>
+                        <h2>{{ $i++ }}. {{ $item->nama_alur }}</h2>
+                        <p>
+                            {{ $item->deskripsi_alur }}
+                        </p>
                     </div>
-                    <h2>1. Pendaftaran Secara Online</h2>
-                    <p>
-                        Membuat akun dan mengisi biodata diri, orang tua, asal sekolah.
-                    </p>
-                </div>
-                <div class="col">
-                    <div
-                        class="ikon-alur d-inline-flex align-items-center text-white justify-content-center mb-3"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="icon icon-tabler icons-tabler-filled icon-tabler-zoom-check"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M14 3.072a8 8 0 0 1 2.617 11.424l4.944 4.943a1.5 1.5 0 0 1 -2.008 2.225l-.114 -.103l-4.943 -4.944a8 8 0 0 1 -12.49 -6.332l-.006 -.285l.005 -.285a8 8 0 0 1 11.995 -6.643zm-.293 4.22a1 1 0 0 0 -1.414 0l-3.293 3.294l-1.293 -1.293l-.094 -.083a1 1 0 0 0 -1.32 1.497l2 2l.094 .083a1 1 0 0 0 1.32 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
-                            />
-                        </svg>
-                    </div>
-                    <h2>2. Verifikasi Berkas</h2>
-                    <p>Menyerahkan berkas persyaratan ke sekolah</p>
-                </div>
-                <div class="col">
-                    <div
-                        class="ikon-alur d-inline-flex align-items-center text-white justify-content-center mb-3"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-pencil-question"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M8 20l6 -6l3 -3l1.5 -1.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4h4z"
-                            />
-                            <path d="M13.5 6.5l4 4" />
-                            <path d="M19 22v.01" />
-                            <path
-                                d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"
-                            />
-                        </svg>
-                    </div>
-                    <h2>3. Tes Seleksi</h2>
-                    <p>
-                        Calon Peserta Didik Baru mengikuti tes seleksi sesuai jadwal &
-                        ketentuan yang ada
-                    </p>
-                </div>
-                <div class="col">
-                    <div
-                        class="ikon-alur d-inline-flex align-items-center text-white justify-content-center mb-3"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-certificate"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M15 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                            <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
-                            <path
-                                d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73"
-                            />
-                            <path d="M6 9l12 0" />
-                            <path d="M6 12l3 0" />
-                            <path d="M6 15l2 0" />
-                        </svg>
-                    </div>
-                    <h2>4. Pengumuman Kelulusan</h2>
-                    <p>Pengumuman dapat dilihat melalui website / datang ke sekolah</p>
-                </div>
-                <div class="col">
-                    <div
-                        class="ikon-alur d-inline-flex align-items-center text-white justify-content-center mb-3"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-certificate"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M15 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                            <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
-                            <path
-                                d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73"
-                            />
-                            <path d="M6 9l12 0" />
-                            <path d="M6 12l3 0" />
-                            <path d="M6 15l2 0" />
-                        </svg>
-                    </div>
-                    <h2>5. Daftar Ulang</h2>
-                    <p>
-                        Peserta yang dinyatakan lulus wajib datang ke MAN 3 HSU untuk
-                        melakukan daftar ulang
-                    </p>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

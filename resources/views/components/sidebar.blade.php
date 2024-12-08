@@ -45,8 +45,8 @@
                                     >Profil Madrasah</a
                                 >
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Alur</a>
+                            <li class="nav-item {{ Route::is('alur*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('alur.index') }}">Alur</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Jadwal</a>

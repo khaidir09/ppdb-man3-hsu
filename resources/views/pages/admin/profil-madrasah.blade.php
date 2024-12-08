@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-body-tertiary text-end">
-                    <button type="" class="btn tombol-batal me-1">Batal</button>
+                    <button type="reset" class="btn tombol-batal me-1">Batal</button>
                     <button type="submit" class="btn tombol">Simpan</button>
                 </div>
             </form>

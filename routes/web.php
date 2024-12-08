@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AlurController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfilMadrasahController;
 use App\Http\Controllers\ProfileController;
@@ -11,6 +12,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/master/profil-madrasah', [ProfilMadrasahController::class, 'index'])->name('profil-madrasah');
     Route::post('/master/profil-madrasah/{id}', [ProfilMadrasahController::class, 'update'])->name('profil-madrasah-update');
+    Route::resource('master/alur', AlurController::class);
 });
 
 Route::middleware('auth')->group(function () {

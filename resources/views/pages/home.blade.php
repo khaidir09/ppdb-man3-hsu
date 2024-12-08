@@ -120,36 +120,13 @@
                 </div>
             </div>
             <div class="grid-container">
-                <div class="box-persyaratan text-center text-white position-relative">
-                    <div class="corner-fold"></div>
-                    <h3>Fotocopy Raport Legalisir Kelas IX</h3>
-                    <span class="badge badge-persyaratan">1 Lembar</span>
-                </div>
-                <div class="box-persyaratan text-center text-white position-relative">
-                    <div class="corner-fold"></div>
-                    <h3>Fotocopy IJAZAH Legalisir</h3>
-                    <span class="badge badge-persyaratan">1 Lembar</span>
-                </div>
-                <div class="box-persyaratan text-center text-white position-relative">
-                    <div class="corner-fold"></div>
-                    <h3>Pas Photo Hitam Putih</h3>
-                    <span class="badge badge-persyaratan">3x4 (3 lembar), 2x3 (2 lembar), 4x6 (1 lembar)</span>
-                </div>
-                <div class="box-persyaratan text-center text-white position-relative">
-                    <div class="corner-fold"></div>
-                    <h3>Fotocopy Kartu Keluarga</h3>
-                    <span class="badge badge-persyaratan">1 Lembar</span>
-                </div>
-                <div class="box-persyaratan text-center text-white position-relative">
-                    <div class="corner-fold"></div>
-                    <h3>Fotocopy Akta Kelahiran</h3>
-                    <span class="badge badge-persyaratan">1 Lembar</span>
-                </div>
-                <div class="box-persyaratan text-center text-white position-relative">
-                    <div class="corner-fold"></div>
-                    <h3>Fotocopy KIP jika ada</h3>
-                    <span class="badge badge-persyaratan">1 Lembar</span>
-                </div>
+                @foreach ($persyaratan as $item)
+                    <div class="box-persyaratan text-center text-white position-relative">
+                        <div class="corner-fold"></div>
+                        <h3>{{ $item->deskripsi_persyaratan }}</h3>
+                        <span class="badge badge-persyaratan">{{ $item->jumlah }}</span>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -1,0 +1,81 @@
+body {
+    .tombol-utama {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        background-color: #fff;
+        color: #009e0f;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        position: relative;
+
+        &:hover {
+            background-color: #fff;
+            color: #009e0f;
+        }
+    }
+    .tombol-utama .ikon-panah {
+        width: 0;
+        overflow: hidden;
+        display: inline-block;
+        transition: width 0.5s;
+    }
+    .tombol-utama:hover .ikon-panah {
+        width: 20px;
+    }
+    .tombol-kedua {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        background-color: transparent;
+        color: #fff;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        border-color: #fff;
+        margin-left: 12px;
+        position: relative;
+
+        &:hover {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+        }
+    }
+    .tombol-kedua .ikon-panah {
+        width: 0;
+        overflow: hidden;
+        display: inline-block;
+        transition: width 0.5s;
+    }
+    .tombol-kedua:hover .ikon-panah {
+        width: 20px;
+    }
+
+    .tombol {
+        padding: 8px 16px;
+        background-color: #009e0f;
+        color: #fff;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+
+        &:hover {
+            background-color: #10c122;
+            color: #fff;
+        }
+    }
+
+    .tombol-batal {
+        padding: 8px 16px;
+        background-color: #ffc107;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+
+        &:hover {
+            background-color: rgb(255, 204, 52);
+        }
+    }
+}

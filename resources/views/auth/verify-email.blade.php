@@ -1,31 +1,45 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-        </div>
-    @endif
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-            <div>
-                <x-primary-button>
-                    {{ __('Resend Verification Email') }}
-                </x-primary-button>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+</head>
+<body>
+    <div class="container">
+        <div class="row text-center align-items-center" id="verifikasi">
+            <div class="col">
+                <h3>Terima kasih sudah mendaftar melalui website PPDB Online MAN 3 HSU.</h3>
+                <p>Kami baru saja mengirim email verifikasi ke email yang kamu daftarkan. Untuk melanjutkan proses pendaftaran harap verifikasi akun kamu melalui email tersebut.</p>
+                <p>Jika kamu belum menerima email, kirim ulang email verifikas dengan menekan tombol dibawah ini.</p>
+
+                @if (session('status') == 'verification-link-sent')
+                    <p class="mb-4">A new verification link has been sent to the email address you provided during registration.</p>
+                @endif
+
+                <div class="mt-4">
+                    <form method="POST" action="{{ route('verification.send') }}">
+                        @csrf
+                        <div>
+                            <button type="submit" class="btn tombol">Kirim Ulang Email Verifikasi</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
-            </button>
-        </form>
+        </div>
     </div>
-</x-guest-layout>
+</body>
+</html>

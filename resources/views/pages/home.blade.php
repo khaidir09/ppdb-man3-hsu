@@ -21,7 +21,7 @@
                     <div
                         class="btn-container justify-content-center justify-content-lg-start"
                     >
-                        <a href="pendaftaran.html" class="btn tombol-utama">
+                        <a href="{{ route('register') }}" class="btn tombol-utama">
                             Daftar Sekarang <span class="ikon-panah">&#10230;</span>
                         </a>
                         <button class="btn tombol-kedua">

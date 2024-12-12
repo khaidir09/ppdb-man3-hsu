@@ -24,9 +24,9 @@
                         <a href="{{ route('register') }}" class="btn tombol-utama">
                             Daftar Sekarang <span class="ikon-panah">&#10230;</span>
                         </a>
-                        <button class="btn tombol-kedua">
+                        <a href="{{ route('calon.login') }}" class="btn tombol-kedua">
                             Login Calon Siswa <span class="ikon-panah">&#10230;</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-5 mt-4 mt-lg-0 align-self-center">

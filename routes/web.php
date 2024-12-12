@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PersyaratanController;
 use App\Http\Controllers\Admin\ProfilMadrasahController;
+use App\Http\Controllers\Siswa\LoginController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -29,6 +30,12 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::middleware('guest')->group(function () {
+    // Halaman login untuk calon peserta didik
+    Route::get('/calon/login', [LoginController::class, 'showLoginForm'])->name('calon.login');
+    Route::post('/calon/login', [LoginController::class, 'login']);
+});
 
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {

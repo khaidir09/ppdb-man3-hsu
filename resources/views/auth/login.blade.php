@@ -19,44 +19,46 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="row">
-        <div
-            class="col-12 col-md-6 m-auto align-content-center"
-            id="form-login-admin"
-        >
-            <div class="text-center">
-                <img src="images/kemenag.png" alt="" height="100" />
-                <h3 class="mt-3">Masuk Akun Admin</h3>
-            </div>
-            <form method="POST" action="{{ route('login') }}" class="mt-5">
-                @csrf
-                <label for="email" class="form-label"
-                    >Alamat Email <span class="text-danger">*</span></label
-                >
-                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+    <div class="container-fluid">
+        <div class="row">
+            <div
+                class="col-12 col-md-6 m-auto align-content-center"
+                id="form-login-admin"
+            >
+                <div class="text-center">
+                    <img src="images/kemenag.png" alt="" height="100" />
+                    <h3 class="mt-3">Masuk Akun Admin</h3>
+                </div>
+                <form method="POST" action="{{ route('login') }}" class="mt-5">
+                    @csrf
+                    <label for="email" class="form-label"
+                        >Alamat Email <span class="text-danger">*</span></label
+                    >
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
-                <label for="password" class="form-label mt-3"
-                    >Kata Sandi <span class="text-danger">*</span></label
-                >
-                <input
-                    type="password"
-                    class="form-control @error('password') is-invalid @enderror"
-                    id="password"
-                    name="password"
-                    required autocomplete="current-password"
-                />
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                <button type="submit" class="btn tombol w-100 mt-3">Masuk</button>
-            </form>
+                    <label for="password" class="form-label mt-3"
+                        >Kata Sandi <span class="text-danger">*</span></label
+                    >
+                    <input
+                        type="password"
+                        class="form-control @error('password') is-invalid @enderror"
+                        id="password"
+                        name="password"
+                        required autocomplete="current-password"
+                    />
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <button type="submit" class="btn tombol w-100 mt-3">Masuk</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

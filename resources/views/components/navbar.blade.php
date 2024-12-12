@@ -1,7 +1,7 @@
 <div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top py-2 py-md-0" id="main-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img
                     src="{{ asset('images/logo.png') }}"
                     alt=""

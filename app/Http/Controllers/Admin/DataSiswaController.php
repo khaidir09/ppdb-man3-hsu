@@ -23,7 +23,8 @@ class DataSiswaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('pages.admin.siswa.detail', compact('user'));
     }
 
     /**

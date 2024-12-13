@@ -95,7 +95,7 @@
                                             data-toggle="tooltip"
                                             data-placement="bottom"
                                             title="Lihat Detail"
-                                            href=""
+                                            href="{{ route('siswa.show', $item->id) }}"
                                             class="btn btn-info btn-sm"
                                         >
                                             <svg

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProfilMadrasahController;
 use App\Http\Controllers\Siswa\DashboardController as SiswaDashboardController;
 use App\Http\Controllers\Siswa\DataAsalSekolahController;
 use App\Http\Controllers\Siswa\DataDiriController;
+use App\Http\Controllers\Siswa\DataOrangTuaController;
 use App\Http\Controllers\Siswa\LoginController;
 use App\Http\Middleware\EnsureRole;
 use App\Http\Middleware\EnsureRoleSiswa;
@@ -55,6 +56,8 @@ Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])
     Route::post('/data-diri/{id}', [DataDiriController::class, 'update'])->name('data-diri-update');
     Route::get('/data-asal-sekolah', [DataAsalSekolahController::class, 'index'])->name('data-asal-sekolah');
     Route::post('/data-asal-sekolah/{id}', [DataAsalSekolahController::class, 'update'])->name('data-asal-sekolah-update');
+    Route::get('/data-orang-tua', [DataOrangTuaController::class, 'index'])->name('data-orang-tua');
+    Route::post('/data-orang-tua/{id}', [DataOrangTuaController::class, 'update'])->name('data-orang-tua-update');
 });
 
 Route::middleware('auth')->group(function () {

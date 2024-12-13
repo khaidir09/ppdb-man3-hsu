@@ -6,6 +6,7 @@ use App\Models\Profile;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -15,6 +16,7 @@ class DashboardController extends Controller
         $jadwal = Schedule::all();
         $pendaftaranOnline1 = Schedule::where('id', 1)->value('tgl_mulai');
         $pendaftaranOnline2 = Schedule::where('id', 1)->value('tgl_selesai_gelombang2');
-        return view('pages.siswa.dashboard', compact('namaSekolah', 'jadwal', 'pendaftaranOnline1', 'pendaftaranOnline2'));
+        $user = Auth::user();
+        return view('pages.siswa.dashboard', compact('namaSekolah', 'jadwal', 'pendaftaranOnline1', 'pendaftaranOnline2', 'user'));
     }
 }

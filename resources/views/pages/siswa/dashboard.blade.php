@@ -4,16 +4,32 @@
     <div class="container-fluid p-4 p-md-5">
         <div class="card shadow py-2 mb-4">
             <div class="card-body">
-                <h1>Salam,</h1>
+                <h1>Salam, {{ Auth::user()->name }}</h1>
                 <h6>Selamat datang di PPDB Online {{ $namaSekolah }}.</h6>
             </div>
         </div>
-        <div class="alert alert-warning" role="alert">
-            <strong>Perhatian!</strong> Kamu belum melengkapi formulir Data Orang Tua, <a href="">klik disini untuk melengkapi</a>.
-        </div>
-         <div class="row">
+        @php
+            $fields = [
+                $user->nama_ayah,
+                $user->pendidikan_ayah,
+                $user->pekerjaan_ayah,
+                $user->penghasilan_ayah,
+                $user->nomor_hp_ayah,
+                $user->nama_ibu,
+                $user->pendidikan_ibu,
+                $user->pekerjaan_ibu,
+                $user->penghasilan_ibu,
+                $user->nomor_hp_ibu
+            ];
+        @endphp
+        @if(collect($fields)->contains(null))
+            <div class="alert alert-warning" role="alert">
+                <strong>Perhatian!</strong> Kamu belum melengkapi formulir Data Orang Tua, <a href="{{ route('data-orang-tua') }}">klik disini untuk melengkapi</a>.
+            </div>
+        @endif
+        <div class="row">
             <div class="col">
-                <table class="table table table-bordered">
+                <table class="table table-bordered">
                     <thead class="table-success">
                         <tr>
                             <th>Kegiatan</th>

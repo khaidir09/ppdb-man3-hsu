@@ -9,7 +9,10 @@ use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PersyaratanController;
 use App\Http\Controllers\Admin\ProfilMadrasahController;
+use App\Http\Controllers\Siswa\DashboardController as SiswaDashboardController;
 use App\Http\Controllers\Siswa\LoginController;
+use App\Http\Middleware\EnsureRole;
+use App\Http\Middleware\EnsureRoleSiswa;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,20 +34,21 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::middleware('guest')->group(function () {
-    // Halaman login untuk calon peserta didik
-    Route::get('/calon/login', [LoginController::class, 'showLoginForm'])->name('calon.login');
-    Route::post('/calon/login', [LoginController::class, 'login']);
-});
+Route::get('/calon/login', [LoginController::class, 'showLoginForm'])->name('calon.login');
+Route::post('/calon/login', [LoginController::class, 'login']);
 
 
-Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/master/profil-madrasah', [ProfilMadrasahController::class, 'index'])->name('profil-madrasah');
     Route::post('/master/profil-madrasah/{id}', [ProfilMadrasahController::class, 'update'])->name('profil-madrasah-update');
     Route::resource('master/alur', AlurController::class);
     Route::resource('master/jadwal', JadwalController::class);
     Route::resource('master/persyaratan', PersyaratanController::class);
+});
+
+Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {
+    Route::get('/dashboard', [SiswaDashboardController::class, 'index'])->name('dashboard-siswa');
 });
 
 Route::middleware('auth')->group(function () {

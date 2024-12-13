@@ -13,8 +13,8 @@
                 <li class="nav-item {{ Route::is('dashboard-siswa') ? 'active' : '' }}">
                     <a href="{{ route('dashboard-siswa') }}" class="nav-link"> Dashboard </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link"> Data Diri </a>
+                <li class="nav-item {{ Route::is('data-diri') ? 'active' : '' }}">
+                    <a href="{{ route('data-diri') }}" class="nav-link"> Data Diri </a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link"> Data Asal Sekolah </a>

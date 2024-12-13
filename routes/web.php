@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PersyaratanController;
 use App\Http\Controllers\Admin\ProfilMadrasahController;
 use App\Http\Controllers\Siswa\DashboardController as SiswaDashboardController;
+use App\Http\Controllers\Siswa\DataDiriController;
 use App\Http\Controllers\Siswa\LoginController;
 use App\Http\Middleware\EnsureRole;
 use App\Http\Middleware\EnsureRoleSiswa;
@@ -49,6 +50,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
 
 Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {
     Route::get('/dashboard', [SiswaDashboardController::class, 'index'])->name('dashboard-siswa');
+    Route::get('/data-diri', [DataDiriController::class, 'index'])->name('data-diri');
+    Route::post('/data-diri/{id}', [DataDiriController::class, 'update'])->name('data-diri-update');
 });
 
 Route::middleware('auth')->group(function () {

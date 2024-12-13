@@ -57,8 +57,8 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link"> Data Siswa </a>
+                <li class="nav-item {{ Route::is('siswa*') ? 'active' : '' }}">
+                    <a href="{{ route('siswa.index') }}" class="nav-link"> Data Siswa </a>
                 </li>
                 <li class="nav-item">
                     <a

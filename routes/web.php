@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AlurController;
 use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DataSiswaController;
 use App\Http\Controllers\Admin\PersyaratanController;
 use App\Http\Controllers\Admin\ProfilMadrasahController;
 use App\Http\Controllers\Siswa\DashboardController as SiswaDashboardController;
@@ -48,6 +49,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::resource('master/alur', AlurController::class);
     Route::resource('master/jadwal', JadwalController::class);
     Route::resource('master/persyaratan', PersyaratanController::class);
+    Route::resource('siswa', DataSiswaController::class);
 });
 
 Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {

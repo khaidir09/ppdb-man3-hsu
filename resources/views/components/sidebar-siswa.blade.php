@@ -16,8 +16,8 @@
                 <li class="nav-item {{ Route::is('data-diri') ? 'active' : '' }}">
                     <a href="{{ route('data-diri') }}" class="nav-link"> Data Diri </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link"> Data Asal Sekolah </a>
+                <li class="nav-item {{ Route::is('data-asal-sekolah') ? 'active' : '' }}">
+                    <a href="{{ route('data-asal-sekolah') }}" class="nav-link"> Data Asal Sekolah </a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link"> Data Orang Tua </a>

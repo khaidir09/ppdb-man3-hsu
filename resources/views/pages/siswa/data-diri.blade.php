@@ -207,7 +207,7 @@
                             <label for="alamat" class="form-label mb-2"
                                 >Alamat Orang Tua</label
                             >
-                            <textarea name="alamat" class="form-control" id="alamat" rows="1">Jl. Negara Dipa RT.1 Kel.Sungai Malang</textarea>
+                            <textarea name="alamat" class="form-control" id="alamat" rows="1">{{ $data->alamat }}</textarea>
                         </div>
                     </div>
                     <div class="row">

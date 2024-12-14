@@ -28,24 +28,28 @@ class DataSiswaController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $data = User::findOrFail($id);
+        return view('pages.admin.siswa.edit', [
+            'data' => $data
+        ]);
+    }
+
+    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //get product by ID
+        $data = $request->all();
+
         $item = User::findOrFail($id);
 
-        //update product without image
-        $item->update([
-            'flows_id'         => $request->flows_id,
-            'tgl_mulai'   => $request->tgl_mulai,
-            'tgl_selesai'   => $request->tgl_selesai,
-            'tgl_mulai_gelombang2'   => $request->tgl_mulai_gelombang2,
-            'tgl_selesai_gelombang2'   => $request->tgl_selesai_gelombang2
-        ]);
+        $item->update($data);
 
-        //redirect to index
-        return redirect()->route('siswa.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('siswa.index');
     }
 
     /**

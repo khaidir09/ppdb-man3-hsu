@@ -100,19 +100,37 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa">Hobi</label>
-                <p>{{ $user->hobi }}</p>
+                <p>
+                    @if ($user->hobi != null)
+                        {{ $user->hobi }}
+                    @else
+                        Tidak diisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Cita-cita</label
                 >
-                <p>{{ $user->cita_cita }}</p>
+                <p>
+                    @if ($user->cita_cita != null)
+                        {{ $user->cita_cita }}
+                    @else
+                        Tidak diisi
+                    @endif                    
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Siswa Anak ke</label
                 >
-                <p>{{ $user->anak_ke }}</p>
+                <p>
+                    @if ($user->anak_ke != null)
+                        {{ $user->anak_ke }}
+                    @else
+                        Tidak diisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
@@ -124,7 +142,13 @@
                 <label for="" class="form-label label-data-siswa"
                 >Jumlah saudara kandung</label
                 >
-                <p>{{ $user->jumlah_saudara_kandung }}</p>
+                <p>
+                    @if ($user->jumlah_saudara_kandung != null)
+                        {{ $user->jumlah_saudara_kandung }}
+                    @else
+                        Tidak diisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-8">
                 <label for="" class="form-label label-data-siswa"
@@ -152,7 +176,13 @@
                 <label for="" class="form-label label-data-siswa"
                 >Alamat Sekolah Asal</label
                 >
-                <p>{{ $user->alamat_sekolah_asal }}</p>
+                <p>
+                    @if ($user->alamat_sekolah_asal != null)
+                        {{ $user->alamat_sekolah_asal }}
+                    @else
+                        Tidak diisi
+                    @endif
+                </p>
             </div>
             </div>
         </div>
@@ -168,61 +198,121 @@
                 <label for="" class="form-label label-data-siswa"
                 >Nama Ayah</label
                 >
-                <p>{{ $user->nama_ayah }}</p>
+                <p>
+                    @if ($user->nama_ayah != null)
+                        {{ $user->nama_ayah }}
+                    @else
+                        <span class="text-danger">Belum mengisi</span>
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Pendidikan Ayah</label
                 >
-                <p>{{ $user->pendidikan_ayah }}</p>
+                <p>
+                    @if ($user->pendidikan_ayah != null)
+                        {{ $user->pendidikan_ayah }}
+                    @else
+                        Tidak mengisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Pekerjaan Ayah</label
                 >
-                <p>{{ $user->pekerjaan_ayah }}</p>
+                <p>
+                    @if ($user->pekerjaan_ayah != null)
+                        {{ $user->pekerjaan_ayah }}
+                    @else
+                        Tidak mengisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Rata-rata penghasilan Ayah perbulan</label
                 >
-                <p>{{ $user->penghasilan_ayah }}</p>
+                <p>
+                    @if ($user->penghasilan_ayah != null)
+                        {{ $user->penghasilan_ayah }}
+                    @else
+                        Tidak mengisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Nomor HP Ayah</label
                 >
-                <p>{{ $user->nomor_hp_ayah }}</p>
+                <p>
+                    @if ($user->nomor_hp_ayah != null)
+                        {{ $user->nomor_hp_ayah }}
+                    @else
+                        <span class="text-danger">Belum mengisi</span>
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Nama Ibu</label
                 >
-                <p>{{ $user->nama_ibu }}</p>
+                <p>
+                    @if ($user->nama_ibu != null)
+                        {{ $user->nama_ibu }}
+                    @else
+                        <span class="text-danger">Belum mengisi</span>
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Pendidikan Ibu</label
                 >
-                <p>{{ $user->pendidikan_ibu }}</p>
+                <p>
+                    @if ($user->pendidikan_ibu != null)
+                        {{ $user->pendidikan_ibu }}
+                    @else
+                        Tidak mengisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Pekerjaan Ibu</label
                 >
-                <p>{{ $user->pekerjaan_ibu }}</p>
+                <p>
+                    @if ($user->pekerjaan_ibu != null)
+                        {{ $user->pekerjaan_ibu }}
+                    @else
+                        Tidak mengisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Rata-rata penghasilan Ibu perbulan</label
                 >
-                <p>{{ $user->penghasilan_ibu }}</p>
+                <p>
+                    @if ($user->penghasilan_ibu != null)
+                        {{ $user->penghasilan_ibu }}
+                    @else
+                        Tidak mengisi
+                    @endif
+                </p>
             </div>
             <div class="col-md-6 col-lg-4">
                 <label for="" class="form-label label-data-siswa"
                 >Nomor HP Ibu</label
                 >
-                <p>{{ $user->nomor_hp_ibu }}</p>
+                <p>
+                    @if ($user->nomor_hp_ibu != null)
+                        {{ $user->nomor_hp_ibu }}
+                    @else
+                        <span class="text-danger">Belum mengisi</span>
+                    @endif
+                </p>
             </div>
             </div>
         </div>

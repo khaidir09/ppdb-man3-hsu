@@ -58,14 +58,14 @@
                         cellspacing="0"
                         >
                         <thead class="bg-success text-white">
-                            <tr align="center">
+                            <tr class="text-center">
                             <th>No.</th>
                             <th>Nama</th>
-                            <th>NISN</th>
+                            <th class="text-center">NISN</th>
                             <th>Asal Sekolah</th>
-                            <th>Nomor WA</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
+                            <th class="text-center">Nomor WA</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +73,21 @@
                                 $i = 1;
                             @endphp
                             @foreach ($users as $item)
+                            @php
+                                if ($item->status_pendaftaran === 'Perlu Perbaikan') :
+                                    $color = 'text-bg-warning';
+                                elseif ($item->status_pendaftaran === 'Selesai') :
+                                    $color = 'text-bg-primary';
+                                elseif ($item->status_pendaftaran === 'Belum Lengkap') :
+                                     $color = 'text-bg-secondary';
+                                elseif ($item->status_pendaftaran === 'Tidak Lulus') :
+                                     $color = 'text-bg-danger';
+                                elseif ($item->status_pendaftaran === 'Lulus') :
+                                     $color = 'text-bg-success';
+                                else :
+                                    $color = 'text-bg-dark';
+                                endif
+                            @endphp
                                 <tr align="center">
                                     <td class="text-center">{{ $i++ }}</td>
                                     <td class="text-start">{{ $item->name }}</td>
@@ -81,10 +96,9 @@
                                     <td class="text-center">{{ $item->nomor_wa }}</td>
                                     <td class="text-center">
                                         <a
-                                        href=""
+                                        href="#statusSiswa{{ $item->id }}"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#statusSiswa"
-                                        class="text-decoration-none text-white badge rounded-pill text-bg-dark px-3 py-2"
+                                        class="text-decoration-none badge rounded-pill {{ $color }} px-3 py-2"
                                         >
                                         {{ $item->status_pendaftaran }}
                                         </a>
@@ -125,7 +139,7 @@
                                             data-toggle="tooltip"
                                             data-placement="bottom"
                                             title="Edit Data"
-                                            href=""
+                                            href="{{ route('siswa.edit', $item->id) }}"
                                             class="btn btn-warning btn-sm"
                                             ><svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -187,70 +201,73 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
-
-                            <!-- Modal -->
-                            <div
-                            class="modal fade"
-                            id="statusSiswa"
-                            tabindex="-1"
-                            aria-labelledby="statusSiswaLabel"
-                            aria-hidden="true"
-                            >
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="statusSiswaLabel">
-                                        Perbarui Status Pendaftaran Siswa
-                                        </h1>
-                                        <button
-                                        type="button"
-                                        class="btn-close"
-                                        data-bs-dismiss="modal"
-                                        aria-label="Close"
-                                        ></button>
-                                    </div>
-                                    <div class="modal-body py-5 text-center">
-                                        <div class="form-check form-check-inline">
-                                        <input
-                                            class="form-check-input"
-                                            type="radio"
-                                            name="inlineRadioOptions"
-                                            id="inlineRadio1"
-                                            value="option1"
-                                        />
-                                        <label class="form-check-label" for="inlineRadio1"
-                                            >Perlu Perbaikan</label
-                                        >
+                                <!-- Modal -->
+                                <div
+                                class="modal fade"
+                                id="statusSiswa{{ $item->id }}"
+                                tabindex="-1"
+                                aria-labelledby="statusSiswaLabel"
+                                aria-hidden="true"
+                                >
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <form action="{{ route('siswa.update', $item->id) }}" method="POST">
+                                                @method('PUT')
+                                                @csrf
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="statusSiswaLabel">
+                                                    Perbarui Status Pendaftaran Siswa <br> <span class="text-success">{{ $item->name }}</span>
+                                                    </h1>
+                                                    <button
+                                                    type="button"
+                                                    class="btn-close"
+                                                    data-bs-dismiss="modal"
+                                                    aria-label="Close"
+                                                    ></button>
+                                                </div>
+                                                <div class="modal-body py-5 text-center">
+                                                    <div class="form-check form-check-inline">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="status_pendaftaran"
+                                                        id="inlineRadio1"
+                                                        value="Perlu Perbaikan"
+                                                    />
+                                                    <label class="form-check-label" for="inlineRadio1"
+                                                        >Perlu Perbaikan</label
+                                                    >
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="status_pendaftaran"
+                                                        id="inlineRadio2"
+                                                        value="Selesai"
+                                                    />
+                                                    <label class="form-check-label" for="inlineRadio2"
+                                                        >Sudah Lengkap & Benar</label
+                                                    >
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button
+                                                    type="button"
+                                                    class="btn tombol-batal"
+                                                    data-bs-dismiss="modal"
+                                                    >
+                                                    Batal
+                                                    </button>
+                                                    <button type="submit" class="btn tombol">
+                                                    Simpan Perubahan
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                        <input
-                                            class="form-check-input"
-                                            type="radio"
-                                            name="inlineRadioOptions"
-                                            id="inlineRadio2"
-                                            value="option2"
-                                        />
-                                        <label class="form-check-label" for="inlineRadio2"
-                                            >Sudah Lengkap & Benar</label
-                                        >
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button
-                                        type="button"
-                                        class="btn tombol-batal"
-                                        data-bs-dismiss="modal"
-                                        >
-                                        Batal
-                                        </button>
-                                        <button type="button" class="btn tombol">
-                                        Simpan Perubahan
-                                        </button>
-                                    </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

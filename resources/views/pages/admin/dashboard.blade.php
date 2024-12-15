@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <h1 class="mb-0">90</h1>
+                                <h1 class="mb-0">{{ $terdaftar }}</h1>
                                 <p class="mb-0">Total Akun Terdaftar</p>
                             </div>
                             <div class="col-auto">
@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <h1 class="mb-0">70</h1>
+                                <h1 class="mb-0">{{ $terverifikasi }}</h1>
                                 <p class="mb-0">Akun Terverifikasi</p>
                             </div>
                             <div class="col-auto">
@@ -71,7 +71,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <h1 class="mb-0">20</h1>
+                                <h1 class="mb-0">{{ $belumVerifikasi }}</h1>
                                 <p class="mb-0">Akun Belum Verifikasi</p>
                             </div>
                             <div class="col-auto">
@@ -105,7 +105,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <h1 class="mb-0">65</h1>
+                                <h1 class="mb-0">{{ $selesai }}</h1>
                                 <p class="mb-0">Mengisi dengan benar</p>
                             </div>
                             <div class="col-auto">
@@ -138,7 +138,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <h1 class="mb-0">1</h1>
+                                <h1 class="mb-0">{{ $salah }}</h1>
                                 <p class="mb-0">Terdapat kesalahan</p>
                             </div>
                             <div class="col-auto">
@@ -171,7 +171,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <h1 class="mb-0">4</h1>
+                                <h1 class="mb-0">{{ $belumLengkap }}</h1>
                                 <p class="mb-0">Belum melengkapi</p>
                             </div>
                             <div class="col-auto">

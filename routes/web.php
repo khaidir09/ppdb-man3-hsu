@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AlurController;
 use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataSiswaController;
+use App\Http\Controllers\Admin\LaporanBelumLengkapController;
 use App\Http\Controllers\Admin\LaporanBelumVerifikasiController;
 use App\Http\Controllers\Admin\LaporanKeseluruhanController;
 use App\Http\Controllers\Admin\PersyaratanController;
@@ -56,6 +57,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::get('/laporan/cetak-keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'cetak'])->name('keseluruhan-data-pendaftar-cetak');
     Route::get('/laporan/belum-verifikasi', [LaporanBelumVerifikasiController::class, 'index'])->name('belum-verifikasi');
     Route::get('/laporan/cetak-belum-verifikasi', [LaporanBelumVerifikasiController::class, 'cetak'])->name('belum-verifikasi-cetak');
+    Route::get('/laporan/belum-lengkap', [LaporanBelumLengkapController::class, 'index'])->name('belum-lengkap');
+    Route::get('/laporan/cetak-belum-lengkap', [LaporanBelumLengkapController::class, 'cetak'])->name('belum-lengkap-cetak');
 });
 
 Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {

@@ -93,8 +93,8 @@
                             <li class="nav-item {{ Route::is('belum-verifikasi') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('belum-verifikasi') }}">Belum Verifikasi Akun</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Belum Melengkapi Formulir</a>
+                            <li class="nav-item {{ Route::is('belum-lengkap') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('belum-lengkap') }}">Belum Melengkapi Formulir</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Selesai Melengkapi Formulir</a>

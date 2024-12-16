@@ -1,6 +1,6 @@
 <div>
     <nav class="navbar navbar-expand navbar-light bg-light shadow">
-        <div class="container-fluid">
+        <div class="container">
             <button
                 class="btn btn-dark d-md-none"
                 type="button"

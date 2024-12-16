@@ -85,10 +85,10 @@
                             <path d="M6 9l6 6l6 -6" />
                         </svg>
                     </a>
-                    <div class="collapse" id="submenulaporan">
+                    <div class="collapse {{ (request()->is('admin/laporan*')) ? 'show' : '' }}" id="submenulaporan">
                         <ul class="nav flex-column ms-3">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Keseluruhan Data Pendaftar</a>
+                            <li class="nav-item {{ Route::is('keseluruhan-data-pendaftar') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('keseluruhan-data-pendaftar') }}">Keseluruhan Data Pendaftar</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Belum Verifikasi Akun</a>

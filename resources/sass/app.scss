@@ -4,6 +4,7 @@
 // Variables
 @import "variables";
 @import "navbar";
+@import "home";
 @import "tombol";
 
 // Bootstrap
@@ -24,143 +25,6 @@ body {
     .btn-container {
         display: flex;
         align-items: center;
-    }
-}
-
-#hero {
-    background-color: #009e0f;
-    color: #fff;
-    .row {
-        padding-top: 120px;
-        padding-bottom: 72px;
-    }
-    .display-1 {
-        font-weight: 700;
-        font-size: 53px;
-    }
-    .display-2 {
-        font-weight: 600;
-        font-size: 48px !important;
-        margin-bottom: 12px;
-    }
-    .info-reg-online {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        background-color: #ffff00;
-        padding: 16px 32px;
-        color: #000;
-        h6 {
-            margin-bottom: 0;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        width: fit-content;
-        border-radius: 12px;
-    }
-}
-
-#alur {
-    .ikon-alur {
-        border-radius: 6px;
-        background-color: #009e0f;
-        width: 4rem;
-        height: 4rem;
-    }
-
-    h2 {
-        font-weight: 600;
-        font-size: 24px;
-    }
-}
-
-#persyaratan {
-    .judul {
-        margin-bottom: 10px;
-    }
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(
-            auto-fit,
-            minmax(300px, 1fr)
-        ); /* Kolom dinamis */
-        gap: 20px; /* Jarak antar box */
-        padding: 20px; /* Padding pada container */
-    }
-
-    .box-persyaratan {
-        position: relative;
-        background-color: #000;
-        padding: 30px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-        h3 {
-            font-weight: normal;
-            font-size: 20px;
-        }
-    }
-
-    .badge-persyaratan {
-        background-color: #009e0f;
-        padding: 10px 15px;
-    }
-
-    .corner-fold {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(
-            135deg,
-            transparent 50%,
-            rgba(255, 255, 255, 0.2) 50%
-        );
-        clip-path: polygon(0 0, 100% 0, 100% 100%);
-        z-index: 1;
-    }
-
-    .corner-fold::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            45deg,
-            rgba(255, 255, 255, 0.4) 0%,
-            rgba(0, 0, 0, 0.2) 100%
-        );
-        clip-path: polygon(0 0, 100% 0, 0 100%);
-    }
-}
-
-#grup {
-    padding-bottom: 48px;
-    .box-cta {
-        background-color: #009e0f;
-        padding: 30px;
-        border-radius: 12px;
-    }
-    .btn-cta {
-        background-color: #fff;
-        color: #009e0f;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 8px 16px;
-    }
-}
-
-footer {
-    a {
-        text-decoration: none;
-        color: #000;
-    }
-    h6 {
-        font-weight: 600;
-        color: #000;
     }
 }
 
@@ -273,13 +137,8 @@ footer {
 
 #dashboard {
     overflow-x: hidden;
-
     h6 {
         font-weight: 700;
-    }
-
-    .content {
-        height: 100vh;
     }
 
     .sidebar {
@@ -316,6 +175,10 @@ footer {
 
     .label-data-siswa {
         font-weight: 700;
+    }
+
+    .laporan {
+        padding: 50px 100px 50px 50px;
     }
 }
 

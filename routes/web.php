@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AlurController;
 use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataSiswaController;
+use App\Http\Controllers\Admin\LaporanKeseluruhanController;
 use App\Http\Controllers\Admin\PersyaratanController;
 use App\Http\Controllers\Admin\ProfilMadrasahController;
 use App\Http\Controllers\Siswa\DashboardController as SiswaDashboardController;
@@ -50,6 +51,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::resource('master/jadwal', JadwalController::class);
     Route::resource('master/persyaratan', PersyaratanController::class);
     Route::resource('siswa', DataSiswaController::class);
+    Route::get('/laporan/keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'index'])->name('keseluruhan-data-pendaftar');
+    Route::get('/laporan/cetak-keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'cetak'])->name('keseluruhan-data-pendaftar-cetak');
 });
 
 Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AlurController;
 use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataSiswaController;
+use App\Http\Controllers\Admin\LaporanBelumVerifikasiController;
 use App\Http\Controllers\Admin\LaporanKeseluruhanController;
 use App\Http\Controllers\Admin\PersyaratanController;
 use App\Http\Controllers\Admin\ProfilMadrasahController;
@@ -53,6 +54,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::resource('siswa', DataSiswaController::class);
     Route::get('/laporan/keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'index'])->name('keseluruhan-data-pendaftar');
     Route::get('/laporan/cetak-keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'cetak'])->name('keseluruhan-data-pendaftar-cetak');
+    Route::get('/laporan/belum-verifikasi', [LaporanBelumVerifikasiController::class, 'index'])->name('belum-verifikasi');
+    Route::get('/laporan/cetak-belum-verifikasi', [LaporanBelumVerifikasiController::class, 'cetak'])->name('belum-verifikasi-cetak');
 });
 
 Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {

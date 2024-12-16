@@ -90,8 +90,8 @@
                             <li class="nav-item {{ Route::is('keseluruhan-data-pendaftar') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('keseluruhan-data-pendaftar') }}">Keseluruhan Data Pendaftar</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Belum Verifikasi Akun</a>
+                            <li class="nav-item {{ Route::is('belum-verifikasi') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('belum-verifikasi') }}">Belum Verifikasi Akun</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Belum Melengkapi Formulir</a>

@@ -44,7 +44,7 @@
             </tr>
         </table>
 		<hr />
-		<h3 class="text-center">Laporan Keseluruhan Data Pendaftar</h3>
+		<h3 class="text-center">Laporan Belum Verifikasi Akun</h3>
 		<table class="table w-100">
             <thead class="text-center" style="background-color: #009e0f; color: #fff;">
                 <tr>
@@ -56,8 +56,6 @@
                     <th id="data" scope="col">Nomor WA</th>
                     <th id="data" scope="col">Sekolah Asal</th>
                     <th id="data" scope="col">Alamat</th>
-                    <th id="data" scope="col">Nama Ayah</th>
-                    <th id="data" scope="col">Nama Ibu</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,8 +72,6 @@
                         <td id="data">{{ $item->nomor_wa }}</th>
                         <td id="data">{{ $item->nama_sekolah_asal }}</th>
                         <td id="data">{{ $item->alamat }}</th>
-                        <td id="data">{{ $item->nama_ayah }}</th>
-                        <td id="data">{{ $item->nama_ibu }}</th>
                     </tr>
                 @endforeach
             </tbody>

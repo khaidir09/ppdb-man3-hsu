@@ -96,8 +96,8 @@
                             <li class="nav-item {{ Route::is('belum-lengkap') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('belum-lengkap') }}">Belum Melengkapi Formulir</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Selesai Melengkapi Formulir</a>
+                            <li class="nav-item {{ Route::is('selesai') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('selesai') }}">Selesai Melengkapi Formulir</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Data Perlu Perbaikan</a>

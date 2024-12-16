@@ -17,7 +17,15 @@ class DashboardController extends Controller
         $belumVerifikasi = User::where('role', 'Siswa')->where('email_verified_at', '=', null)->count();
         $selesai = User::where('status_pendaftaran', 'Selesai')->count();
         $salah = User::where('status_pendaftaran', 'Perlu Perbaikan')->count();
-        $belumLengkap = User::where('role', 'Siswa')->where('nama_ayah', null)->orWhere('nama_ibu', null)->orWhere('nomor_hp_ayah', null)->orWhere('nomor_hp_ibu', null)->count();
+        $belumLengkap = User::where('role', 'Siswa') // Filter berdasarkan role
+            ->whereNotNull('email_verified_at') // Pastikan email sudah terverifikasi
+            ->where(function ($query) {
+                // Salah satu field berikut tidak boleh null
+                $query->whereNull('nama_ayah')
+                    ->orWhereNull('nomor_hp_ayah')
+                    ->orWhereNull('nama_ibu')
+                    ->orWhereNull('nomor_hp_ibu');
+            })->count();
         return view('pages.admin.dashboard', compact('namaSekolah', 'terdaftar', 'terverifikasi', 'belumVerifikasi', 'selesai', 'salah', 'belumLengkap'));
     }
 }

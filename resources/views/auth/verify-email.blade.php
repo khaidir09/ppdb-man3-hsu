@@ -38,6 +38,14 @@
                         </div>
                     </form>
                 </div>
+                <div class="mt-3">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn tombol-batal">
+                            Keluar
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

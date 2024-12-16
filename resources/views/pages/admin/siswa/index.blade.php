@@ -78,8 +78,6 @@
                                     $color = 'text-bg-warning';
                                 elseif ($item->status_pendaftaran === 'Selesai') :
                                     $color = 'text-bg-primary';
-                                elseif ($item->status_pendaftaran === 'Belum Lengkap') :
-                                     $color = 'text-bg-secondary';
                                 elseif ($item->status_pendaftaran === 'Tidak Lulus') :
                                      $color = 'text-bg-danger';
                                 elseif ($item->status_pendaftaran === 'Lulus') :
@@ -100,7 +98,15 @@
                                         data-bs-toggle="modal"
                                         class="text-decoration-none badge rounded-pill {{ $color }} px-3 py-2"
                                         >
-                                        {{ $item->status_pendaftaran }}
+                                        @if ($item->email_verified_at === null)
+                                            Belum Verifikasi
+                                        @elseif ($item->nama_ayah === null || $item->nomor_hp_ayah === null || $item->nama_ibu === null || $item->nomor_hp_ibu === null)
+                                            Belum Lengkap
+                                        @elseif ($item->status_pendaftaran === null)
+                                            Perlu Konfirmasi
+                                        @else
+                                            {{ $item->status_pendaftaran }}
+                                        @endif
                                         </a>
                                     </td>
                                     <td>

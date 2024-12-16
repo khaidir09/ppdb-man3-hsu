@@ -67,7 +67,6 @@ class RegisteredUserController extends Controller
             'nama_sekolah_asal' => $request->nama_sekolah_asal,
             'alamat_sekolah_asal' => $request->alamat_sekolah_asal,
             'alamat' => $request->alamat,
-            'status_pendaftaran' => 'Belum Verifikasi',
             'pilihan_mendaftar' => $request->pilihan_mendaftar,
         ]);
 

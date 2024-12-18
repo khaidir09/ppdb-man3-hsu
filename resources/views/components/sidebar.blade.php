@@ -99,8 +99,8 @@
                             <li class="nav-item {{ Route::is('selesai') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('selesai') }}">Selesai Melengkapi Formulir</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Data Perlu Perbaikan</a>
+                            <li class="nav-item {{ Route::is('perbaikan') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('perbaikan') }}">Data Perlu Perbaikan</a>
                             </li>
                         </ul>
                     </div>

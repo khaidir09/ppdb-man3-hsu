@@ -22,6 +22,9 @@
                 <li class="nav-item {{ Route::is('data-orang-tua') ? 'active' : '' }}">
                     <a href="{{ route('data-orang-tua') }}" class="nav-link"> Data Orang Tua </a>
                 </li>
+                <li class="nav-item {{ Route::is('data-berkas') ? 'active' : '' }}">
+                    <a href="{{ route('data-berkas') }}" class="nav-link"> Data Berkas </a>
+                </li>
             </ul>
         </div>
     </nav>

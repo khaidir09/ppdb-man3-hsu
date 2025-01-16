@@ -15,6 +15,8 @@
         rel="stylesheet"
     />
 
+    @stack('styles')
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -26,5 +28,6 @@
             @yield('content')
         </div>
     </div>
+    @stack('scripts')
 </body>
 </html>

@@ -16,7 +16,12 @@ class LaporanBelumLengkapController extends Controller
             $query->whereNull('nama_ayah')
                 ->orWhereNull('nomor_hp_ayah')
                 ->orWhereNull('nama_ibu')
-                ->orWhereNull('nomor_hp_ibu');
+                ->orWhereNull('nomor_hp_ibu')
+                ->orWhereNull('rapor')
+                ->orWhereNull('ijazah')
+                ->orWhereNull('kartu_keluarga')
+                ->orWhereNull('akta')
+                ->orWhereNull('kip');
         })->get();
         return view('pages.admin.laporan.belum-lengkap', compact('users'));
     }
@@ -28,7 +33,12 @@ class LaporanBelumLengkapController extends Controller
             $query->whereNull('nama_ayah')
                 ->orWhereNull('nomor_hp_ayah')
                 ->orWhereNull('nama_ibu')
-                ->orWhereNull('nomor_hp_ibu');
+                ->orWhereNull('nomor_hp_ibu')
+                ->orWhereNull('rapor')
+                ->orWhereNull('ijazah')
+                ->orWhereNull('kartu_keluarga')
+                ->orWhereNull('akta')
+                ->orWhereNull('kip');
         })->get();
         $pdf = PDF::loadView('pages.admin.laporan.belum-lengkap-cetak', [
             'users' => $users,

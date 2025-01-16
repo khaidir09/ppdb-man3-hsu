@@ -21,10 +21,23 @@
                 $user->penghasilan_ibu,
                 $user->nomor_hp_ibu
             ];
+
+            $documents = [
+                $user->rapor,
+                $user->ijazah,
+                $user->kartu_keluarga,
+                $user->akta,
+                $user->kip
+            ];
         @endphp
         @if(collect($fields)->contains(null))
             <div class="alert alert-warning" role="alert">
                 <strong>Perhatian!</strong> Kamu belum melengkapi formulir Data Orang Tua, <a href="{{ route('data-orang-tua') }}">klik disini untuk melengkapi</a>.
+            </div>
+        @endif
+        @if(collect($documents)->contains(null))
+            <div class="alert alert-warning" role="alert">
+                <strong>Perhatian!</strong> Kamu belum melengkapi formulir Berkas Persyaratan, <a href="{{ route('data-berkas') }}">klik disini untuk melengkapi</a>.
             </div>
         @endif
         <div class="row">

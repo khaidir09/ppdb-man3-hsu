@@ -24,7 +24,12 @@ class DashboardController extends Controller
                 $query->whereNull('nama_ayah')
                     ->orWhereNull('nomor_hp_ayah')
                     ->orWhereNull('nama_ibu')
-                    ->orWhereNull('nomor_hp_ibu');
+                    ->orWhereNull('nomor_hp_ibu')
+                    ->orWhereNull('rapor')
+                    ->orWhereNull('ijazah')
+                    ->orWhereNull('kartu_keluarga')
+                    ->orWhereNull('akta')
+                    ->orWhereNull('kip');
             })->count();
         return view('pages.admin.dashboard', compact('namaSekolah', 'terdaftar', 'terverifikasi', 'belumVerifikasi', 'selesai', 'salah', 'belumLengkap'));
     }

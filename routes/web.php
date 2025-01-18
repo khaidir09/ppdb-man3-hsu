@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DataSiswaController;
 use App\Http\Controllers\Admin\LaporanBelumLengkapController;
 use App\Http\Controllers\Admin\LaporanBelumVerifikasiController;
 use App\Http\Controllers\Admin\LaporanKeseluruhanController;
+use App\Http\Controllers\Admin\LaporanOrangTuaController;
 use App\Http\Controllers\Admin\LaporanPerbaikanController;
 use App\Http\Controllers\Admin\LaporanSelesaiController;
 use App\Http\Controllers\Admin\PersyaratanController;
@@ -66,6 +67,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::get('/laporan/cetak-selesai', [LaporanSelesaiController::class, 'cetak'])->name('selesai-cetak');
     Route::get('/laporan/perbaikan', [LaporanPerbaikanController::class, 'index'])->name('perbaikan');
     Route::get('/laporan/cetak-perbaikan', [LaporanPerbaikanController::class, 'cetak'])->name('perbaikan-cetak');
+    Route::get('/laporan/orang-tua', [LaporanOrangTuaController::class, 'index'])->name('orang-tua');
+    Route::get('/laporan/cetak-orang-tua', [LaporanOrangTuaController::class, 'cetak'])->name('orang-tua-cetak');
 });
 
 Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {

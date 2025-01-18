@@ -102,6 +102,9 @@
                             <li class="nav-item {{ Route::is('perbaikan') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('perbaikan') }}">Data Perlu Perbaikan</a>
                             </li>
+                            <li class="nav-item {{ Route::is('orang-tua') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('orang-tua') }}">Data Orang Tua</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

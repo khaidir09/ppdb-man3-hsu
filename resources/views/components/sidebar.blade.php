@@ -54,6 +54,9 @@
                             <li class="nav-item {{ Route::is('persyaratan*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('persyaratan.index') }}">Persyaratan</a>
                             </li>
+                            <li class="nav-item {{ Route::is('jadwal-wawancara*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('jadwal-wawancara.index') }}">Wawancara</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -104,6 +107,9 @@
                             </li>
                             <li class="nav-item {{ Route::is('orang-tua') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('orang-tua') }}">Data Orang Tua</a>
+                            </li>
+                            <li class="nav-item {{ Route::is('berkas') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('berkas') }}">Data Berkas</a>
                             </li>
                         </ul>
                     </div>

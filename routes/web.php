@@ -8,8 +8,10 @@ use App\Http\Controllers\Admin\AlurController;
 use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataSiswaController;
+use App\Http\Controllers\Admin\JadwalWawancaraController;
 use App\Http\Controllers\Admin\LaporanBelumLengkapController;
 use App\Http\Controllers\Admin\LaporanBelumVerifikasiController;
+use App\Http\Controllers\Admin\LaporanBerkasController;
 use App\Http\Controllers\Admin\LaporanKeseluruhanController;
 use App\Http\Controllers\Admin\LaporanOrangTuaController;
 use App\Http\Controllers\Admin\LaporanPerbaikanController;
@@ -56,6 +58,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::resource('master/alur', AlurController::class);
     Route::resource('master/jadwal', JadwalController::class);
     Route::resource('master/persyaratan', PersyaratanController::class);
+    Route::resource('master/jadwal-wawancara', JadwalWawancaraController::class);
     Route::resource('siswa', DataSiswaController::class);
     Route::get('/laporan/keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'index'])->name('keseluruhan-data-pendaftar');
     Route::get('/laporan/cetak-keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'cetak'])->name('keseluruhan-data-pendaftar-cetak');
@@ -69,6 +72,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::get('/laporan/cetak-perbaikan', [LaporanPerbaikanController::class, 'cetak'])->name('perbaikan-cetak');
     Route::get('/laporan/orang-tua', [LaporanOrangTuaController::class, 'index'])->name('orang-tua');
     Route::get('/laporan/cetak-orang-tua', [LaporanOrangTuaController::class, 'cetak'])->name('orang-tua-cetak');
+    Route::get('/laporan/berkas', [LaporanBerkasController::class, 'index'])->name('berkas');
+    Route::get('/laporan/cetak-berkas', [LaporanBerkasController::class, 'cetak'])->name('berkas-cetak');
 });
 
 Route::prefix('siswa')->middleware(['auth', 'verified', EnsureRoleSiswa::class])->group(function () {

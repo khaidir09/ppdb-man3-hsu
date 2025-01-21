@@ -58,7 +58,9 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::resource('master/alur', AlurController::class);
     Route::resource('master/jadwal', JadwalController::class);
     Route::resource('master/persyaratan', PersyaratanController::class);
-    Route::resource('master/jadwal-wawancara', JadwalWawancaraController::class);
+    Route::resource('master/wawancara', JadwalWawancaraController::class);
+    Route::get('/master/wawancara-siswa/{id}', [JadwalWawancaraController::class, 'addSiswa'])->name('wawancara-siswa');
+    Route::post('/master/wawancara-siswa', [JadwalWawancaraController::class, 'scheduleInterviews'])->name('simpan-wawancara-siswa');
     Route::resource('siswa', DataSiswaController::class);
     Route::get('/laporan/keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'index'])->name('keseluruhan-data-pendaftar');
     Route::get('/laporan/cetak-keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'cetak'])->name('keseluruhan-data-pendaftar-cetak');

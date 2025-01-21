@@ -38,7 +38,7 @@
                             <path d="M6 9l6 6l6 -6" />
                         </svg>
                     </a>
-                    <div class="collapse {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*', 'admin/master/jadwal*', 'admin/master/persyaratan*'])) ? 'show' : '' }}" id="submenumaster">
+                    <div class="collapse {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*', 'admin/master/jadwal*', 'admin/master/persyaratan*', 'admin/master/wawancara*'])) ? 'show' : '' }}" id="submenumaster">
                         <ul class="nav flex-column ms-3">
                             <li class="nav-item {{ Route::is('profil-madrasah') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('profil-madrasah') }}"
@@ -54,8 +54,8 @@
                             <li class="nav-item {{ Route::is('persyaratan*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('persyaratan.index') }}">Persyaratan</a>
                             </li>
-                            <li class="nav-item {{ Route::is('jadwal-wawancara*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('jadwal-wawancara.index') }}">Wawancara</a>
+                            <li class="nav-item {{ Route::is('wawancara*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('wawancara.index') }}">Wawancara</a>
                             </li>
                         </ul>
                     </div>

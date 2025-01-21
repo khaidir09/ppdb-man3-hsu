@@ -7,7 +7,7 @@
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="38"  height="38"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user-question"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" /><path d="M19 22v.01" /><path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" /></svg>
                 Jadwal Wawancara
             </h1>
-            <a href="{{ route('jadwal-wawancara.index') }}" class="btn btn-secondary mt-3 mt-md-0"
+            <a href="{{ route('wawancara.index') }}" class="btn btn-secondary mt-3 mt-md-0"
                 ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -30,7 +30,7 @@
         </div>
 
         <div class="card shadow">
-            <form action="{{ route('jadwal-wawancara.store') }}" method="POST">
+            <form action="{{ route('wawancara.store') }}" method="POST">
                 @csrf
                     <div class="card-header bg-body-tertiary py-3">
                     <h6 class="m-0">

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\InterviewSchedule;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\InterviewSession;
+use App\Models\InterviewSchedule;
+use App\Http\Controllers\Controller;
 
 class JadwalWawancaraController extends Controller
 {
@@ -24,6 +26,36 @@ class JadwalWawancaraController extends Controller
     {
         return view('pages.admin.jadwal-wawancara.create');
     }
+
+    public function addSiswa($id)
+    {
+        $data = InterviewSchedule::findOrFail($id);
+        $users = User::where('role', 'Siswa')->where('status_pendaftaran', 'Selesai')->get();
+        return view('pages.admin.jadwal-wawancara.add-siswa', [
+            'data' => $data,
+            'users' => $users
+        ]);
+    }
+
+    public function scheduleInterviews(Request $request)
+    {
+        $studentIds = $request->input('user_ids');
+        $interviewSchedulesId = $request->input('interview_schedules_id');
+
+        if (!$studentIds || count($studentIds) == 0) {
+            return response()->json(['message' => 'Tidak ada siswa yang dipilih!'], 400);
+        }
+
+        foreach ($studentIds as $studentId) {
+            InterviewSession::create([
+                'users_id' => $studentId,
+                'interview_schedules_id' => $interviewSchedulesId,
+            ]);
+        }
+
+        return response()->json(['message' => 'Jadwal wawancara berhasil dibuat!']);
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,7 +77,7 @@ class JadwalWawancaraController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('jadwal-wawancara.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('wawancara.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -83,7 +115,7 @@ class JadwalWawancaraController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('jadwal-wawancara.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('wawancara.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
@@ -96,6 +128,6 @@ class JadwalWawancaraController extends Controller
         $item->delete();
 
         //redirect to index
-        return redirect()->route('jadwal-wawancara.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('wawancara.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

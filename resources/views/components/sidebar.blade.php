@@ -96,6 +96,9 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item {{ Route::is('kelas*') ? 'active' : '' }}">
+                    <a href="{{ route('kelas.index') }}" class="nav-link"> Data Kelas </a>
+                </li>
                 <li class="nav-item">
                     <a
                         class="nav-link d-flex justify-content-between align-items-center"

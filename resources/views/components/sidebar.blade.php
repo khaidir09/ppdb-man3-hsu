@@ -38,7 +38,7 @@
                             <path d="M6 9l6 6l6 -6" />
                         </svg>
                     </a>
-                    <div class="collapse {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*', 'admin/master/jadwal*', 'admin/master/persyaratan*', 'admin/master/wawancara*'])) ? 'show' : '' }}" id="submenumaster">
+                    <div class="collapse {{ (request()->is(['admin/master/profil-madrasah*', 'admin/master/alur*', 'admin/master/jadwal*', 'admin/master/persyaratan*'])) ? 'show' : '' }}" id="submenumaster">
                         <ul class="nav flex-column ms-3">
                             <li class="nav-item {{ Route::is('profil-madrasah') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('profil-madrasah') }}"
@@ -54,14 +54,47 @@
                             <li class="nav-item {{ Route::is('persyaratan*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('persyaratan.index') }}">Persyaratan</a>
                             </li>
-                            <li class="nav-item {{ Route::is('wawancara*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('wawancara.index') }}">Wawancara</a>
-                            </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item {{ Route::is('siswa*') ? 'active' : '' }}">
                     <a href="{{ route('siswa.index') }}" class="nav-link"> Data Siswa </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link d-flex justify-content-between align-items-center {{ (request()->is(['admin/wawancara*'])) ? 'collapsed' : '' }}"
+                        href="#submenuwawancara"
+                        data-bs-toggle="collapse"
+                        aria-expanded="{{ (request()->is(['admin/wawancara*'])) ? 'true' : 'false' }}"
+                    >
+                        Wawancara
+                        <svg
+                            id="icon-menu"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M6 9l6 6l6 -6" />
+                        </svg>
+                    </a>
+                    <div class="collapse {{ (request()->is(['admin/wawancara*', 'admin/hasil-wawancara'])) ? 'show' : '' }}" id="submenuwawancara">
+                        <ul class="nav flex-column ms-3">
+                            <li class="nav-item {{ Route::is('wawancara*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('wawancara.index') }}">Jadwal Wawancara</a>
+                            </li>
+                            <li class="nav-item {{ Route::is('hasil-wawancara') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('hasil-wawancara') }}">Hasil Wawancara</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a

@@ -17,6 +17,12 @@ class DashboardController extends Controller
         $pendaftaranOnline1 = Schedule::where('id', 1)->value('tgl_mulai');
         $pendaftaranOnline2 = Schedule::where('id', 1)->value('tgl_selesai_gelombang2');
         $user = Auth::user();
-        return view('pages.siswa.dashboard', compact('namaSekolah', 'jadwal', 'pendaftaranOnline1', 'pendaftaranOnline2', 'user'));
+
+        // Ambil informasi jadwal wawancara jika ada
+        $interviewSession = $user->interviewSession;
+
+        // Jika siswa memiliki jadwal wawancara
+        $schedule = $interviewSession ? $interviewSession->schedule : null;
+        return view('pages.siswa.dashboard', compact('namaSekolah', 'jadwal', 'pendaftaranOnline1', 'pendaftaranOnline2', 'user', 'schedule'));
     }
 }

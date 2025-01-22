@@ -40,6 +40,18 @@
                 <strong>Perhatian!</strong> Kamu belum melengkapi formulir Berkas Persyaratan, <a href="{{ route('data-berkas') }}">klik disini untuk melengkapi</a>.
             </div>
         @endif
+        @if (Auth::user()->status_pendaftaran === 'Selesai')
+            <div class="alert alert-success" role="alert">
+                Selamat kamu sudah menyelesaikan pengisian semua formulir dengan benar</a>.
+            </div>
+        @endif
+        @if ($schedule)
+            <div class="alert alert-primary mt-3">
+                <h6>Jadwal Wawancara Anda</h6>
+                <p class="mb-0"><strong>Tanggal :</strong> {{ \Carbon\Carbon::parse($schedule->tanggal)->format('d F Y') }}</p>
+                <p class="mb-0"><strong>Waktu :</strong> {{ $schedule->waktu_mulai }}</p>
+            </div>
+        @endif
         <div class="row">
             <div class="col">
                 <table class="table table-bordered">

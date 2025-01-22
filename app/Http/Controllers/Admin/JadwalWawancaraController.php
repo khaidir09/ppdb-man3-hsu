@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\InterviewSession;
 use App\Models\InterviewSchedule;
 use App\Http\Controllers\Controller;
+use App\Models\InterviewResult;
 
 class JadwalWawancaraController extends Controller
 {
@@ -30,7 +31,12 @@ class JadwalWawancaraController extends Controller
     public function addSiswa($id)
     {
         $data = InterviewSchedule::findOrFail($id);
-        $users = User::where('role', 'Siswa')->where('status_pendaftaran', 'Selesai')->get();
+        // Ambil ID siswa yang sudah memiliki jadwal wawancara
+        $scheduledStudentIds = InterviewSession::pluck('users_id');
+        $users = User::where('role', 'siswa') // Filter berdasarkan role siswa
+            ->where('status_pendaftaran', 'Selesai') // Filter berdasarkan status pendaftaran
+            ->whereNotIn('id', $scheduledStudentIds) // Kecualikan siswa yang sudah dijadwalkan
+            ->get();
         return view('pages.admin.jadwal-wawancara.add-siswa', [
             'data' => $data,
             'users' => $users
@@ -85,7 +91,29 @@ class JadwalWawancaraController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = InterviewSchedule::findOrFail($id);
+        $users = User::whereHas('interviewSession', function ($query) use ($id) {
+            $query->where('interview_schedules_id', $id);
+        })->get();
+        return view('pages.admin.jadwal-wawancara.detail', [
+            'data' => $data,
+            'users' => $users
+        ]);
+    }
+
+    public function addResult(Request $request)
+    {
+        //create product
+        InterviewResult::create([
+            'users_id'         => $request->users_id,
+            'tanggal_wawancara'   => $request->tanggal_wawancara,
+            'hasil_wawancara'   => $request->hasil_wawancara
+        ]);
+
+        InterviewSession::where('users_id', $request->users_id)->delete();
+
+        //redirect to index
+        return back()->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**

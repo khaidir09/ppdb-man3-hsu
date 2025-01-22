@@ -43,4 +43,14 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function interviewSession()
+    {
+        return $this->hasOne(InterviewSession::class, 'users_id', 'id');
+    }
+
+    public function interviewResult()
+    {
+        return $this->hasOne(InterviewResult::class, 'users_id', 'id');
+    }
 }

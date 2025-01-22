@@ -36,10 +36,9 @@
             </div>
             <div class="card-body">
                 <input type="hidden" id="interviewSchedulesId" value="{{ $data->id }}" />
-                <button id="buttonSchedule" fdprocessedid="ko12ik">Jadwalkan Wawancara</button>
-                <div class="table-responsive">
+                <button class="btn btn-success" id="buttonSchedule" fdprocessedid="ko12ik">Jadwalkan Wawancara</button>
+                <div class="table-responsive mt-3">
                     <table
-                        id="dataTable"
                         class="table table-bordered"
                         width="100%"
                         cellspacing="0"
@@ -80,18 +79,9 @@
     </div>
 @endsection
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('vendor/datatables/datatables.min.css') }}">
-@endpush
-
 @push('scripts')
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
     <script>
-        $(document).ready(function () {
-            $("#dataTable").DataTable();
-        });
-
         // Select or Deselect All Rows
         $("#selectAll").on("change", function () {
             $(".selectRow").prop("checked", this.checked);

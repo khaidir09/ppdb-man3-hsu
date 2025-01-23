@@ -8,6 +8,7 @@ use App\Models\InterviewSession;
 use App\Models\InterviewSchedule;
 use App\Http\Controllers\Controller;
 use App\Models\InterviewResult;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class JadwalWawancaraController extends Controller
 {
@@ -16,7 +17,7 @@ class JadwalWawancaraController extends Controller
      */
     public function index()
     {
-        $schedules = InterviewSchedule::all();
+        $schedules = InterviewSchedule::withCount('user')->get();
         return view('pages.admin.jadwal-wawancara.index', compact('schedules'));
     }
 
@@ -114,6 +115,19 @@ class JadwalWawancaraController extends Controller
 
         //redirect to index
         return back()->with(['success' => 'Data Berhasil Disimpan!']);
+    }
+
+    public function cetak($id)
+    {
+        $data = InterviewSchedule::findOrFail($id);
+        $users = User::whereHas('interviewSession', function ($query) use ($id) {
+            $query->where('interview_schedules_id', $id);
+        })->get();
+        $pdf = PDF::loadView('pages.admin.jadwal-wawancara.cetak', [
+            'users' => $users,
+            'data' => $data,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream();
     }
 
     /**

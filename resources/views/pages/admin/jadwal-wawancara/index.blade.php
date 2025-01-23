@@ -66,6 +66,7 @@
                                 <th>Tanggal</th>
                                 <th>Waktu Mulai</th>
                                 <th>Waktu Akhir</th>
+                                <th>Jumlah Siswa Dijadwalkan</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -82,6 +83,9 @@
                                     </td>
                                     <td class="text-center">
                                     {{ $item->waktu_akhir }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $item->user_count }}
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
@@ -152,6 +156,35 @@
                                                 <path
                                                     d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
                                                 />
+                                                </svg>
+                                            </a>
+                                            <a
+                                                data-toggle="tooltip"
+                                                data-placement="bottom"
+                                                title="Cetak Jadwal"
+                                                href="{{ route('cetak-jadwal-wawancara', $item->id) }}"
+                                                class="btn btn-dark btn-sm rounded ms-2"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                                >
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path
+                                                    d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                                    />
+                                                    <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                                                    <path
+                                                    d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                                    />
                                                 </svg>
                                             </a>
                                             <form action="{{ route('wawancara.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Apakah anda yakin untuk menghapus data ini?')" style="display: inline;">

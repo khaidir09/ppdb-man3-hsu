@@ -75,6 +75,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::get('/kelas-siswa/masukkan/{id}', [KelasController::class, 'masukkanSiswa'])->name('masukkan-siswa-kelas');
     Route::post('/kelas-siswa', [KelasController::class, 'classroomStudents'])->name('simpan-siswa-kelas');
     Route::delete('/kelas-siswa/{id}', [SiswaController::class, 'destroy'])->name('siswa-kelas.destroy');
+    Route::get('/kelas-siswa/cetak-kelas/{id}', [KelasController::class, 'cetak'])->name('cetak-kelas');
     Route::get('/laporan/keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'index'])->name('keseluruhan-data-pendaftar');
     Route::get('/laporan/cetak-keseluruhan-data-pendaftar', [LaporanKeseluruhanController::class, 'cetak'])->name('keseluruhan-data-pendaftar-cetak');
     Route::get('/laporan/belum-verifikasi', [LaporanBelumVerifikasiController::class, 'index'])->name('belum-verifikasi');

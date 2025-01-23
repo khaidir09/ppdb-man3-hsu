@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Classroom;
-use App\Models\InterviewResult;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -87,6 +87,19 @@ class KelasController extends Controller
             'data' => $data,
             'students' => $students
         ]);
+    }
+
+    public function cetak($id)
+    {
+        $data = Classroom::findOrFail($id);
+        $students = Student::whereHas('classroom', function ($query) use ($id) {
+            $query->where('classrooms_id', $id);
+        })->get();
+        $pdf = PDF::loadView('pages.admin.kelas.cetak', [
+            'students' => $students,
+            'data' => $data,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream();
     }
 
     /**

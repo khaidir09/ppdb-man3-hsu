@@ -69,6 +69,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', EnsureRole::class])->gro
     Route::delete('/wawancara-siswa/{id}', [SesiWawancaraController::class, 'destroy'])->name('sesi-wawancara.destroy');
     Route::get('/wawancara/cetak-jadwal-wawancara/{id}', [JadwalWawancaraController::class, 'cetak'])->name('cetak-jadwal-wawancara');
     Route::get('/hasil-wawancara', [HasilWawancaraController::class, 'index'])->name('hasil-wawancara');
+    Route::get('/hasil-wawancara/cetak', [HasilWawancaraController::class, 'cetak'])->name('cetak-hasil-wawancara');
     Route::resource('siswa', DataSiswaController::class);
     Route::resource('kelas', KelasController::class);
     Route::get('/kelas-siswa/masukkan/{id}', [KelasController::class, 'masukkanSiswa'])->name('masukkan-siswa-kelas');

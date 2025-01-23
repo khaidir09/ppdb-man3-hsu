@@ -144,7 +144,7 @@ body {
     .sidebar {
         background-color: #009e0f;
         width: 270px;
-        height: 100vh;
+        height: 100%;
 
         a {
             color: #fff;
@@ -163,6 +163,10 @@ body {
         .active {
             font-weight: 700;
         }
+    }
+
+    .content {
+        min-height: 100vh;
     }
 
     .navbar {
